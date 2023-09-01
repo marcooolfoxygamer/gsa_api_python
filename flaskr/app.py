@@ -1,7 +1,7 @@
 from flaskr import create_app
 from flask_restful import Api
 from .modelos import db
-from vistas import VistaAntecedentes, VistaUsuarios, VistaUsuario, VistaAnuncios, VistaAnuncio, VistaAsistencias, VistaAsistencia, VistaMusculos, VistaMusculo,VistaPlanificador, VistaEjercicios, VistaEjercicio, VistaMusculosEjercicios
+from .vistas import VistaAntecedentes, VistaUsuarios, VistaUsuario, VistaAnuncios, VistaAnuncio, VistaAsistencias, VistaAsistencia, VistaMusculos, VistaMusculo,VistaPlanificador, VistaEjercicios, VistaEjercicio, VistaMusculosEjercicios
 from flask_migrate import Migrate
 
 app = create_app("default")
