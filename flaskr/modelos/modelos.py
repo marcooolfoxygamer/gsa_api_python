@@ -106,7 +106,7 @@ class Asistencia(db.Model):
 class Musculos(db.Model):
     #__tablename__ = 'musculos'
     musculo = db.Column(db.String(30), primary_key=True)
-    ejercicios = db.relationship('Ejercicios', secondary='musculo_ejercicio', back_populates='musculos')
+    ejercicios = db.relationship('Ejercicios', secondary='musculos_ejercicios', back_populates='musculos')
     planificador = db.relationship('Planificador', cascade='all, delete, delete-orphan')
 
     def __init__(self,musculo):
@@ -138,7 +138,7 @@ class Ejercicios(db.Model):
     #__tablename__ = 'ejercicios'
     ejercicio = db.Column(db.String(30), primary_key=True)
     imagen_ejerc = db.Column(db.String(255), nullable=False)
-    musculos = db.relationship('Musculos', secondary='musculo_ejercicio', back_populates='ejercicios')
+    musculos = db.relationship('Musculos', secondary='musculos_ejercicios', back_populates='ejercicios')
 
     def __init__(self,ejercicio,imagen_ejerc):
         self.ejercicio = ejercicio
@@ -151,7 +151,7 @@ class Ejercicios(db.Model):
         return str(self.__class__) + ":" + str(self.__dict__)
 
 
-musculos_ejercicios = db.Table('musculo_ejercicio', \
+musculos_ejercicios = db.Table('musculos_ejercicios', \
     db.Column('pkfk_musculo', db.String(30), db.ForeignKey('musculos.musculo'), primary_key=True),\
     db.Column('pkfk_ejercicio', db.String(30), db.ForeignKey('ejercicios.ejercicio'), primary_key=True))
 

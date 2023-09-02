@@ -183,6 +183,6 @@ class VistaMusculosEjercicios(Resource):
         musc = Musculos.query.get(musculos)
         ejercici = musc.ejercicios
 
-        lista_ejerc_titulo = [ {e.ejercicio:e.imagen_ejerc} for e in ejercici ]
+        lista_ejerc = [ {e.ejercicio:e.imagen_ejerc} for e in ejercici ]
 
-        return {'lista_ejerc_titulo':lista_ejerc_titulo}
+        return {'lista de ejercicios':lista_ejerc}
